@@ -83,9 +83,47 @@ print('\nPara isso acontecer, as cartas, tanto a selecionada quanto a primeira e
 print('\nUm pouco complexo, mas você vai pegar o jeito.\n\n')
 print('\t\tBom jogo!')
 
-print('O baralho inicial está assim:')
+#----------------------------------------------------------------jogo-------------------------------------------------------------#
+
+jogo = False
+iniciar = False
+
+while iniciar != True:
+    print('Para iniciar jogo, digite: "Iniciar"')
+    estado = input('')
+    # estado = input('{0} {1}'.format(Fore.GREEN,Style.RESET_ALL))
+    if estado == 'Iniciar':
+        iniciar = True
+        jogo = True
+
+print('\nO baralho inicial está assim:\n')
 baralho_inicial = cria_baralho()
-contador = 1
-for carta in baralho_inicial:
-    print('{}. {}'.format(contador, carta))
-    contador += 1
+
+while jogo:
+    contador = 1
+    tamanho = range(len(baralho_inicial))
+    for carta in baralho_inicial:
+        print(f'{contador}. {color(carta)}{carta}{Style.RESET_ALL}')
+        contador += 1
+    
+    contador = 1
+    numero = int(input('\nEscolha uma carta entre 1 e {}: '.format(max(tamanho)+1)))
+    print('')
+    posicao = (numero-1)
+    while posicao not in tamanho:
+        numero = int(input('Carta inválida. Escolha uma carta entre 1 e {}: '.format(max(tamanho)+1)))
+        print('')
+        posicao = (numero-1)
+    
+    posicao1 = (posicao-1)
+    posicao3 = (posicao-3)
+
+    movimento = lista_movimentos_possiveis(baralho_inicial, posicao)
+
+    print('digite "fechar" para encerrar jogo:')
+    fechar = input('')
+    if fechar == 'fechar':
+        jogo = False
+    elif fechar != 'fechar':
+        jogo = True
+        print('\nO baralho está assim:')
