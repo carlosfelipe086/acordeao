@@ -119,6 +119,12 @@ while jogo:
 
     movimento = lista_movimentos_possiveis(baralho_inicial, posicao)
 
+    if movimento == []:
+        print(f'Não há movimentos possíveis para a carta {baralho_inicial[posicao]}\n')
+
+    elif movimento == [1]:
+        empilha(baralho_inicial, posicao, posicao1)
+
     verificacao = possui_movimentos_possiveis(baralho_inicial)
     if verificacao != True:
         if len(baralho_inicial) > 1:
