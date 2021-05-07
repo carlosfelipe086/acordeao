@@ -91,7 +91,6 @@ iniciar = False
 while iniciar != True:
     print('Para iniciar jogo, digite: "Iniciar"')
     estado = input('')
-    # estado = input('{0} {1}'.format(Fore.GREEN,Style.RESET_ALL))
     if estado == 'Iniciar':
         iniciar = True
         jogo = True
@@ -103,7 +102,7 @@ while jogo:
     contador = 1
     tamanho = range(len(baralho_inicial))
     for carta in baralho_inicial:
-        print(f'{contador}. {color(carta)}{carta}{Style.RESET_ALL}')
+        print(f'{contador}. {carta}')
         contador += 1
     
     contador = 1
@@ -120,10 +119,19 @@ while jogo:
 
     movimento = lista_movimentos_possiveis(baralho_inicial, posicao)
 
-    print('digite "fechar" para encerrar jogo:')
-    fechar = input('')
-    if fechar == 'fechar':
-        jogo = False
-    elif fechar != 'fechar':
-        jogo = True
-        print('\nO baralho está assim:')
+    verificacao = possui_movimentos_possiveis(baralho_inicial)
+    if verificacao != True:
+        if len(baralho_inicial) > 1:
+            for carta in baralho_inicial:
+                print(f'{contador}. {carta}')
+                contador += 1 
+            print('\nNão há mais movimentos possíveis.')
+            print('Você perdeu!')
+            jogo = False
+
+        elif len(baralho_inicial) == 1:
+            for carta in baralho_inicial:
+                print(f'1. {carta}')
+            print('\n\t\t\t\t\t\tVOCÊ EMPILHOU TODAS AS CARTAS!!!')
+            print('\t\t\t\t\t\t\tVOCÊ GANHOU O JOGO!!!')
+            jogo = False
