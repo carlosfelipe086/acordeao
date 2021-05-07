@@ -128,6 +128,24 @@ while jogo:
     elif movimento == [3]:
         empilha(baralho_inicial, posicao, posicao3)
 
+    elif movimento == [1,3]:
+        print(f'Quer empilhar {color(baralho_inicial[posicao])}{baralho_inicial[posicao]}{Style.RESET_ALL} sobre qual carta?')
+
+        print(f'\n 1. {color(baralho_inicial[posicao1])}{baralho_inicial[posicao1]}{Style.RESET_ALL}')
+
+        print(f' 2. {color(baralho_inicial[posicao3])}{baralho_inicial[posicao3]}{Style.RESET_ALL}')
+
+        escolha = int(input(''))
+        possibilidades = [1,2]
+        while escolha not in possibilidades:
+            print('Posição inválida. Escolha entre 1 ou 2: ')
+            escolha = int(input(''))
+
+        if escolha == 1:
+            empilha(baralho_inicial, posicao, posicao1)
+        elif escolha == 2:
+            empilha(baralho_inicial, posicao, posicao3)
+
     verificacao = possui_movimentos_possiveis(baralho_inicial)
     if verificacao != True:
         if len(baralho_inicial) > 1:
