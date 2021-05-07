@@ -1,4 +1,5 @@
 import random
+from colorama import Fore,Style
 
 def cria_baralho():
     lista = ['K♠', 'Q♠', 'J♠', '10♠',
@@ -76,6 +77,17 @@ def possui_movimentos_possiveis(lista):
     else:
         return False
 
+    def color(string):
+        naipe = extrai_naipe(string)
+        if naipe == '♣':
+            return Fore.GREEN
+        if naipe == '♦':
+            return Fore.BLUE
+        if naipe == '♥':
+            return Fore.RED
+        if naipe == '♠':
+            return Fore.MAGENTA
+
 print('Bem vindo(a) ao Paciência Acordeão')
 print('\n---------------------------------')
 print('\nNesse jogo você pode apenas empilhar:\nUma carta sobre a carta imediantamente anterior \nOu empilhar sobre a terceira carta anterior')
@@ -129,11 +141,11 @@ while jogo:
         empilha(baralho_inicial, posicao, posicao3)
 
     elif movimento == [1,3]:
-        print(f'Quer empilhar {color(baralho_inicial[posicao])}{baralho_inicial[posicao]}{Style.RESET_ALL} sobre qual carta?')
+        print(f'Quer empilhar {baralho_inicial[posicao]} sobre qual carta?')
 
-        print(f'\n 1. {color(baralho_inicial[posicao1])}{baralho_inicial[posicao1]}{Style.RESET_ALL}')
+        print(f'\n 1. {baralho_inicial[posicao1]}')
 
-        print(f' 2. {color(baralho_inicial[posicao3])}{baralho_inicial[posicao3]}{Style.RESET_ALL}')
+        print(f' 2. {baralho_inicial[posicao3]}')
 
         escolha = int(input(''))
         possibilidades = [1,2]
