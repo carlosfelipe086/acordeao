@@ -125,6 +125,9 @@ while jogo:
     elif movimento == [1]:
         empilha(baralho_inicial, posicao, posicao1)
 
+    elif movimento == [3]:
+        empilha(baralho_inicial, posicao, posicao3)
+
     verificacao = possui_movimentos_possiveis(baralho_inicial)
     if verificacao != True:
         if len(baralho_inicial) > 1:
