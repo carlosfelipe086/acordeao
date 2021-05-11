@@ -114,7 +114,7 @@ while jogo:
     contador = 1
     tamanho = range(len(baralho_inicial))
     for carta in baralho_inicial:
-        print(f'{contador}. {color(carta)}{carta}{Style.RESET_ALL}')
+        print(f'{contador}. {color(carta)}{carta}{Style.RESET_ALL}') #testando cores
         contador += 1
     
     contador = 1
