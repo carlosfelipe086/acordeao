@@ -164,8 +164,8 @@ while jogo:
             for carta in baralho_inicial:
                 print(f'{contador}. {color(carta)}{carta}{Style.RESET_ALL}')
                 contador += 1 
-            print('\nNão há mais movimentos possíveis.')
-            print('Você perdeu!')
+            print('\n\t\t\t\t\t\tNÃO HÁ MAIS MOVIMENTOS POSSÍVEIS')
+            print('\t\t\t\t\t\t\tVOCÊ PERDEU O JOGO!!!')
             jogo = False
 
         elif len(baralho_inicial) == 1:
