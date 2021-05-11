@@ -132,7 +132,7 @@ while jogo:
     movimento = lista_movimentos_possiveis(baralho_inicial, posicao)
 
     if movimento == []:
-        print(f'Não há movimentos possíveis para a carta {baralho_inicial[posicao]}\n')
+        print(f'Não há movimentos possíveis para a carta {color(baralho_inicial[posicao])}{baralho_inicial[posicao]}{Style.RESET_ALL}\n')
 
     elif movimento == [1]:
         empilha(baralho_inicial, posicao, posicao1)
