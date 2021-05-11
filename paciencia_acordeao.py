@@ -88,14 +88,14 @@ def color(string):
     if naipe == '♠':
         return Fore.MAGENTA
 
-print('Bem vindo(a) ao Paciência Acordeão')
+#----------------------------------------------------------------jogo-------------------------------------------------------------#
+
+print('\nBem vindo(a) ao Paciência Acordeão')
 print('\n---------------------------------')
 print('\nNesse jogo você pode apenas empilhar:\nUma carta sobre a carta imediantamente anterior \nOu empilhar sobre a terceira carta anterior')
 print('\nPara isso acontecer, as cartas, tanto a selecionada quanto a primeira e/ou terceira carta anterior, \nDevem ou ter o mesmo naipe ou mesmo valor!')
 print('\nUm pouco complexo, mas você vai pegar o jeito.\n\n')
 print('\t\tBom jogo!')
-
-#----------------------------------------------------------------jogo-------------------------------------------------------------#
 
 jogo = False
 iniciar = False
@@ -132,7 +132,7 @@ while jogo:
     movimento = lista_movimentos_possiveis(baralho_inicial, posicao)
 
     if movimento == []:
-        print(f'Não há movimentos possíveis para a carta {color(baralho_inicial[posicao])}{baralho_inicial[posicao]}{Style.RESET_ALL}\n')
+        print(f'Não há movimentos possíveis para a carta {baralho_inicial[posicao]}\n')
 
     elif movimento == [1]:
         empilha(baralho_inicial, posicao, posicao1)
@@ -152,7 +152,7 @@ while jogo:
         while escolha not in possibilidades:
             print('Posição inválida. Escolha entre 1 ou 2: ')
             escolha = int(input(''))
-
+        print('')
         if escolha == 1:
             empilha(baralho_inicial, posicao, posicao1)
         elif escolha == 2:
